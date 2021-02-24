@@ -8,8 +8,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/ZiRo-/captcha"
-	"github.com/ZiRo-/captcha/libgocaptcha"
+	"github.com/chenzihaojie/captcha"
+	"github.com/chenzihaojie/captcha/libgocaptcha"
 	"io"
 	"log"
 	"net/http"

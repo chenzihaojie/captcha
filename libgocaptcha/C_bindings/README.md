@@ -4,8 +4,8 @@
 Grab Go from https://golang.org/dl/ or your package manager, and set it up: https://golang.org/doc/install#testing
 Once that's done just run
 ```
-$ go get github.com/ZiRo-/captcha/libgocaptcha
-$ git clone https://github.com/ZiRo-/captcha
+$ go get github.com/chenzihaojie/captcha/libgocaptcha
+$ git clone https://github.com/chenzihaojie/captcha
 $ cd captcha/libgocaptcha/C_bindings
 $ make
 $ sudo make install

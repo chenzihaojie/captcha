@@ -22,7 +22,7 @@ type Font struct {
 var fonts = make(map[string]*Font)
 var selectedFont string
 
-// Load a font created by github.com/ZiRo-/captcha/fontgen
+// Load a font created by github.com/chenzihaojie/captcha/fontgen
 // returns the for usage int AddFont, and an error, if the font can't be loaded.
 func LoadFontFromFile(fname string) *Font {
 	f := make(map[rune][]byte)

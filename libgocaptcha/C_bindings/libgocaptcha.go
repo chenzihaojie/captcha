@@ -6,7 +6,7 @@ package main
 
 import (
 	"bytes"
-	"github.com/ZiRo-/captcha/libgocaptcha"
+	"github.com/chenzihaojie/captcha/libgocaptcha"
 	"image/png"
 	"unsafe"
 )
@@ -21,7 +21,6 @@ extern unsigned int libgocaptcha_digit2rune(unsigned char d);
 extern int libgocaptcha_new_image(char* id, unsigned char* digits, int dlen, int width, int height, unsigned char* buffer, int len);
 */
 import "C"
-
 
 //export libgocaptcha_load_font
 func libgocaptcha_load_font(fname *C.char, fontname *C.char) C.int {
@@ -45,7 +44,7 @@ func libgocaptcha_select_font(name *C.char) {
 func libgocaptcha_random_digits(out *C.uchar, length C.int) {
 	bs := libgocaptcha.RandomDigits(int(length))
 	go_out := (*[1 << 30]C.uchar)(unsafe.Pointer(out))[:length:length]
-	for i, b := range(bs) {
+	for i, b := range bs {
 		go_out[i] = C.uchar(b)
 	}
 }
@@ -69,29 +68,27 @@ func libgocaptcha_digit2rune(r C.uchar) C.uint {
 //export libgocaptcha_new_image
 func libgocaptcha_new_image(id *C.char, digits *C.uchar, dlength C.int, width, height C.int, buffer *C.uchar, length C.int) C.int {
 	go_id := C.GoString(id)
-	go_digits := C.GoBytes(unsafe.Pointer(digits), dlength) 
+	go_digits := C.GoBytes(unsafe.Pointer(digits), dlength)
 	go_img := libgocaptcha.NewImage(go_id, go_digits, int(width), int(height))
-	
+
 	go_buffer := (*[1 << 30]C.uchar)(unsafe.Pointer(buffer))[:length:length]
-	
-	
+
 	var buf bytes.Buffer
 	if err := png.Encode(&buf, go_img); err != nil {
 		return -2
 	}
-	
+
 	bs := buf.Bytes()
 	l := len(bs)
 	if l > int(length) {
 		return -1
 	}
-	
-	for i, b := range(bs) {
+
+	for i, b := range bs {
 		go_buffer[i] = C.uchar(b)
 	}
 	return C.int(l)
 }
-
 
 func main() {
 	// We need the main function to make possible

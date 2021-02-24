@@ -1,6 +1,6 @@
 Package captcha
 =====================
-[![GoDoc](https://godoc.org/github.com/ZiRo-/captcha?status.svg)](https://godoc.org/github.com/ZiRo-/captcha)
+[![GoDoc](https://godoc.org/github.com/chenzihaojie/captcha?status.svg)](https://godoc.org/github.com/chenzihaojie/captcha)
 
 This is a fork of https://github.com/dchest/captcha
 Original by Dmitry Chestnykh
@@ -15,7 +15,7 @@ with a defined length.
 The captcha is a PNG-encoded image with the solution printed on
 it in such a way that makes it hard for computers to solve it using OCR.
 
-This package only requires font files. See [github.com/ZiRo-/captcha/fontgen](https://github.com/ZiRo-/captcha/tree/master/fontgen)
+This package only requires font files. See [github.com/chenzihaojie/captcha/fontgen](https://github.com/chenzihaojie/captcha/tree/master/fontgen)
 for details on how to get them.
 So, before you start generating captchas, you have to load a font:
 ``` go
@@ -49,15 +49,15 @@ captcha id.
 Server provides an http.Handler which can serve image and audio
 representations of captchas automatically from the URL. It can also be used
 to reload captchas.  Refer to Server function documentation for details, or
-take a look at the example in [github.com/ZiRo-/captcha/capexample](https://github.com/ZiRo-/captcha/tree/master/capexample)
+take a look at the example in [github.com/chenzihaojie/captcha/capexample](https://github.com/chenzihaojie/captcha/tree/master/capexample)
 
 C/C++ bindings
 --------
 
-See https://github.com/ZiRo-/captcha/tree/master/libgocaptcha/C_bindings
+See https://github.com/chenzihaojie/captcha/tree/master/libgocaptcha/C_bindings
 
 Examples
 --------
 
-![Image](https://github.com/ZiRo-/captcha/raw/master/capgen/example.png)
+![Image](https://github.com/chenzihaojie/captcha/raw/master/capgen/example.png)
 
